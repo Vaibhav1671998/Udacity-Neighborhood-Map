@@ -146,9 +146,10 @@ function ViewModel() {
     this.restoreDefaults = ko.observable("Restore");
 
     this.getDefaults = function () {
-    		self.locationNames(self.tempLocationNames.slice(0));
-    		initMap();
-
+    		// self.locationNames(self.tempLocationNames.slice(0));
+    		// initMap();
+            var loaction = window.location.href;
+            location.reload();
     };
 
     this.searchTheWikipedia = function() {};
@@ -299,7 +300,7 @@ function initMap() {
 
     function makeMarkerIcon(markerColor) {
         var markerImage = new google.maps.MarkerImage(
-            'https://chart.googleapis.com/chart?chst=d_map_spin&chld=1.15|0|' + markerColor +
+            'http://chart.googleapis.com/chart?chst=d_map_spin&chld=1.15|0|' + markerColor +
             '|40|_|%E2%80%A2',
             new google.maps.Size(21, 34),
             new google.maps.Point(0, 0),
