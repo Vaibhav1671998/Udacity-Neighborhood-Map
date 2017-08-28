@@ -1,0 +1,192 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body,html{
+	width: 100%;
+	height: 100%;
+}
+
+h1 {
+	background: white; /* For browsers that do not support gradients */
+	/* For Safari */
+	background: -webkit-linear-gradient(bottom left,red,orange,yellow,green,blue,indigo,violet);
+	/* For Opera */
+	background: -o-linear-gradient(bottom left,red,orange,yellow,green,blue,indigo,violet);
+	/* For Fx */
+	background: -moz-linear-gradient(bottom left,red,orange,yellow,green,blue,indigo,violet);
+	/* Standard syntax */
+	background: linear-gradient(to bottom left, red,orange,yellow,green,blue,indigo,violet);
+
+}
+
+ul {
+	padding: 6px;
+}
+
+ul {
+	margin: 5px;
+	display: list-item;
+	cursor: pointer;
+}
+
+li {
+	margin: 4px;
+	width: 100%;
+}
+
+li:hover {
+	background-color: #C0C0C0;
+}
+
+p {
+	margin-left: 4px;
+	margin-bottom: 2px;
+	margin-top: 25px;
+	font-weight: bold;
+	font-size: 1.5em;
+}
+
+input {
+	width: 100%;
+}
+
+#container {
+	width: 100%;
+	height: 100%;
+}
+
+#state {
+	width: 100%;
+	height: 12%;
+	background-color: #000000;
+	color: #FFFFFF;
+	text-decoration: underline;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 29px;
+}
+
+#menu {
+	width: 100%;
+	height: 88%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+#content {
+	width: 33%;
+	height: 100%;
+	background: red; /* For browsers that do not support gradients */
+	/* For Safari */
+	background: -webkit-linear-gradient(bottom left,red,orange,yellow,green,blue,indigo,violet);
+	/* For Opera */
+	background: -o-linear-gradient(bottom left,red,orange,yellow,green,blue,indigo,violet);
+	/* For Fx */
+	background: -moz-linear-gradient(bottom left,red,orange,yellow,green,blue,indigo,violet);
+	/* Standard syntax */
+	background: linear-gradient(to bottom right, red,orange,yellow,green,blue,indigo,violet);
+}
+
+#listItems {
+	font-size: 20px;
+	margin: 10px;
+}
+
+#clickButton {
+	margin: 10px;
+}
+
+#map {
+	width: 67%;
+	height: 100%;
+	bottom: 0;
+	left: 0;
+	position: relative;
+}
+
+#pano {
+	width: 200px;
+	height: 200px;
+}
+
+#data {
+	height: 100px;
+	width: 200px;
+	margin: 2px;
+}
+
+@media screen and (max-width: 480px) {
+    #state {
+        font-size: 15px;
+    }
+
+    #content {
+		width: 50%;
+		height: 100%;
+	}
+
+	#map {
+		width: 50%;
+		height: 100%;
+		bottom: 0;
+		left: 0;
+		position: relative;
+	}
+
+	#listItems {
+		font-size: 15px;
+		margin: 5px;
+	}
+
+	body {
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+		word-wrap:break-word;
+	}
+	input {
+		width: 150px;
+	}
+
+	select {
+		width: 89%;
+	}
+
+	button {
+		margin-top: 4px;
+	}
+
+}
+
+@media screen and (max-width: 750px) and (min-width: 401px) {
+    #state {
+        font-size: 20px;
+    }
+
+    #listItems {
+		font-size: 15px;
+		margin: 5px;
+	}
+
+    body {
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+		word-wrap:break-word;
+	}
+
+	select {
+		width: 89%;
+	}
+
+	input {
+		width: 98%;
+	}
+
+	button {
+		margin-top: 4px;
+	}
+}
