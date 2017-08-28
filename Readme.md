@@ -1,6 +1,6 @@
 # Neighborhood Map
 
-## This project was built according to the project rubric of project Neighborhood Map in the nanodegree Front-End web developer by Udacity
+## This project is built according to the project rubric of project Neighborhood Map in the nanodegree Front-End web developer by Udacity
 This app helps to go to any place in the world by just entering the name of the place and clicking on the **GO** button . If you want to go to the initial state from where you have started , you can click on **Restore** button .
 
 ## External Tools used :-
