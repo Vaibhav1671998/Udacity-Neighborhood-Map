@@ -77,7 +77,7 @@ input {
 	flex-wrap: wrap;
 }
 #content {
-	width: 33%;
+	width: 30%;
 	height: 100%;
 	background: red; /* For browsers that do not support gradients */
 	/* For Safari */
@@ -100,7 +100,7 @@ input {
 }
 
 #map {
-	width: 67%;
+	width: 70%;
 	height: 100%;
 	bottom: 0;
 	left: 0;
