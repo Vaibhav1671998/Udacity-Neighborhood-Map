@@ -202,7 +202,7 @@ function ViewModel() {
         console.log(self.filterValue());
         if(typeof(self.filterValue()) == 'undefined')
         {
-        			window.alert('Please select value other than this');
+        	//window.alert('Please select value other than this');
         }
         else
         {
