@@ -135,8 +135,10 @@ function ViewModel() {
     this.cityName = ko.observable("Zurich, Switzerland");
     this.listTitle = "Contents of Map :-";
     this.locationNames = ko.observableArray([]);
+    this.locationNames1 = ko.observableArray([]);
     for (var i = 0; i < locations.length; i++) {
         self.locationNames.push(locations[i].title.toUpperCase());
+        self.locationNames1.push(locations[i].title.toUpperCase());
     }
 
     this.defaultValue = ko.observable("");
@@ -203,13 +205,28 @@ function ViewModel() {
         if(typeof(self.filterValue()) == 'undefined')
         {
         	//window.alert('Please select value other than this');
+        	self.locationNames.removeAll();
+            for(var k=0;k<markers.length;k++)
+            {
+                markers[k].setVisible(true);
+                self.locationNames.push(self.tempLocationNames()[k]);
+                infoWindow.close(map,markers[k]);
+            }
         }
         else
         {
         		placeHolder = self.filterValue();
+        		for(var j=0;j<markers.length;j++)
+        		{
+        			markers[j].setVisible(true);
+        		}
 		        for (var i = 0; i < markers.length; i++) {
 		            if (self.filterValue() !== markers[i].title.toUpperCase()) {
-		                markers[i].setVisible(false);
+		                markers[i].setVisible(false);   
+		            }
+		            else {
+		            	tempMarker = markers[i];
+		                showWindow(markers[i],infoWindow); 
 		            }
 		        }
 		        self.locationNames.removeAll();
