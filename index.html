@@ -19,12 +19,11 @@
             <div id="content">
                 <div id="listItems">
                     <h2 data-bind="text: listTitle"></h2>
-                    <ul data-bind="foreach: locationNames">
+                    <ul data-bind="foreach: locationNames1">
                         <li data-bind="text: $data , click: $parent.animateMarker"></li>
                     </ul>
                 </div>
-                <select data-bind="options: locationNames1, optionsCaption: 'Select a place...', value: filterValue, click: makeFilter" style="margin-left: 2px;height: 32px;"></select>
-                <button data-bind="text: restoreDefaults, click: getDefaults" style="height: 25px;margin-left: 2px;"></button>
+                <select data-bind="options: locationNames, optionsCaption: 'Select a place...', value: filterValue, click: makeFilter"></select>
                 <div id="nameFilter">
                     <p>Filter by nation</p>
                     <input data-bind="value: nameFilter" placeholder="Enter name of a place,state,country to search" size="35" style="height:30px;font-size: 15px;" id="nameSearch">
@@ -32,18 +31,6 @@
                 <div id="clickButton">
                     <button data-bind="click: searchTheMap" style="height: 50px;width: 100px;">Go</button>
                 </div>
-                
-                <!-- <div id="filterOption">
-                    <p>Filter by nation</p>
-                    <input data-bind="value: defaultValue" placeholder="Enter name of a city or country" size="25" style="height:30px;font-size: 15px;" id="searchPlaces">
-                </div>
-                <div id="clickButton">
-                    <button data-bind="click: searchTheWikipedia" style="height: 50px;width: 100px;">Go</button>
-                </div>
-                <div id="listItems">
-                    <h3 data-bind="text: searchedList"></h3>
-                </div> -->
-
             </div>
             <div id="map"></div>
             <script src="./js/app.js"></script>
