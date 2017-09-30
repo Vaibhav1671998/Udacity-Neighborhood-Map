@@ -10,10 +10,10 @@ var locations = [{
         }
     },
     {
-        title: 'Opernhaus Zürich',
+        title: 'Belvoir Park',
         location: {
-            lat: 47.3649985,
-            lng: 8.5468344
+            lat: 47.357742,
+            lng: 8.5311685
         }
     },
     {
@@ -43,27 +43,6 @@ var locations = [{
             lat: 47.37166,
             lng: 8.5364668
         }
-    },
-    {
-    		title: 'Grossmünster',
-    		location: {
-    			lat: 47.3700931,
-    			lng: 8.544054
-    		}
-    },
-    {
-    		title: 'Swiss National Museum',
-    		location: {
-    			lat: 47.3790557,
-    			lng: 8.5405491
-    		}
-    },
-    {
-    		title: 'Rietberg Museum',
-    		location: {
-    			lat: 47.3589309,
-    			lng: 8.5303232
-    		}
     }
 ];
 
@@ -135,10 +114,10 @@ function ViewModel() {
     this.cityName = ko.observable("Zurich, Switzerland");
     this.listTitle = "Contents of Map :-";
     this.locationNames = ko.observableArray([]);
-    this.locationNamesOne = ko.observableArray([]);
+    this.locationNames1 = ko.observableArray([]);
     for (var i = 0; i < locations.length; i++) {
         self.locationNames.push(locations[i].title.toUpperCase());
-        self.locationNamesOne.push(locations[i].title.toUpperCase());
+        self.locationNames1.push(locations[i].title.toUpperCase());
     }
 
     this.defaultValue = ko.observable("");
@@ -196,12 +175,12 @@ function ViewModel() {
         if(typeof(self.filterValue()) == 'undefined')
         {
                     //window.alert('Please select value other than this');
-                    self.locationNamesOne.removeAll();
-                    // self.locationNamesOne = (self.tempLocationNames());
+                    self.locationNames1.removeAll();
+                    // self.locationNames1 = (self.tempLocationNames());
                     for(var k=0;k<markers.length;k++)
                     {
                         markers[k].setVisible(true);
-                        self.locationNamesOne.push(self.tempLocationNames()[k]);
+                        self.locationNames1.push(self.tempLocationNames()[k]);
                         infoWindow.close(map,markers[k]);
                     }
                     
@@ -223,8 +202,8 @@ function ViewModel() {
 		            	showWindow(markers[i],infoWindow);
 		            }
 		        }
-		        self.locationNamesOne.removeAll();
-		        self.locationNamesOne.push(placeHolder);
+		        self.locationNames1.removeAll();
+		        self.locationNames1.push(placeHolder);
         }
         
     };
