@@ -145,15 +145,6 @@ function ViewModel() {
 
     this.nameFilter = ko.observable("");
 
-    this.restoreDefaults = ko.observable("Restore");
-
-    this.getDefaults = function () {
-    		// self.locationNames(self.tempLocationNames.slice(0));
-    		// initMap();
-            var loaction = window.location.href;
-            location.reload();
-    };
-
     this.searchTheWikipedia = function() {};
 
     this.searchTheMap = function() {};
@@ -204,33 +195,36 @@ function ViewModel() {
         console.log(self.filterValue());
         if(typeof(self.filterValue()) == 'undefined')
         {
-        	//window.alert('Please select value other than this');
-        	self.locationNames.removeAll();
-            for(var k=0;k<markers.length;k++)
-            {
-                markers[k].setVisible(true);
-                self.locationNames.push(self.tempLocationNames()[k]);
-                infoWindow.close(map,markers[k]);
-            }
+                    //window.alert('Please select value other than this');
+                    self.locationNames1.removeAll();
+                    // self.locationNames1 = (self.tempLocationNames());
+                    for(var k=0;k<markers.length;k++)
+                    {
+                        markers[k].setVisible(true);
+                        self.locationNames1.push(self.tempLocationNames()[k]);
+                        infoWindow.close(map,markers[k]);
+                    }
+                    
         }
         else
         {
-        		placeHolder = self.filterValue();
         		for(var j=0;j<markers.length;j++)
         		{
         			markers[j].setVisible(true);
         		}
+        		placeHolder = self.filterValue();
 		        for (var i = 0; i < markers.length; i++) {
 		            if (self.filterValue() !== markers[i].title.toUpperCase()) {
-		                markers[i].setVisible(false);   
+		                markers[i].setVisible(false);
 		            }
-		            else {
+		            else
+		            {
 		            	tempMarker = markers[i];
-		                showWindow(markers[i],infoWindow); 
+		            	showWindow(markers[i],infoWindow);
 		            }
 		        }
-		        self.locationNames.removeAll();
-		        self.locationNames.push(placeHolder);
+		        self.locationNames1.removeAll();
+		        self.locationNames1.push(placeHolder);
         }
         
     };
@@ -281,30 +275,6 @@ function initMap() {
         this.setAnimation(null);
     };
 
-    makeMarkers = function () {
-    		var bounds = new google.maps.LatLngBounds();
-		    for (var i = 0; i < locations.length; i++) {
-		        var position = locations[i].location;
-		        var title = locations[i].title;
-
-		        var marker = new google.maps.Marker({
-		            position: position,
-		            title: title,
-		            animation: google.maps.Animation.DROP,
-		            id: i,
-		            icon: defaultIcon,
-		            map: map
-		        });
-		        markers.push(marker);
-		        bounds.extend(markers[i].getPosition());
-		        marker.addListener('click', showInfoWindowClick);
-		        marker.addListener('mouseover', showInfoWindowMouseOver);
-		        marker.addListener('mouseout', showInfoWindowMouseOut);
-		    }
-
-		    map.fitBounds(bounds);
-    };
-
 
 
     // var autoComplete = new google.maps.places.Autocomplete(
@@ -313,7 +283,26 @@ function initMap() {
     //          document.getElementById('nameSearch'));
 
     var bounds = new google.maps.LatLngBounds();
-    makeMarkers();
+    for (var i = 0; i < locations.length; i++) {
+        var position = locations[i].location;
+        var title = locations[i].title;
+
+        var marker = new google.maps.Marker({
+            position: position,
+            title: title,
+            animation: google.maps.Animation.DROP,
+            id: i,
+            icon: defaultIcon,
+            map: map
+        });
+        markers.push(marker);
+        bounds.extend(markers[i].getPosition());
+        marker.addListener('click', showInfoWindowClick);
+        marker.addListener('mouseover', showInfoWindowMouseOver);
+        marker.addListener('mouseout', showInfoWindowMouseOut);
+    }
+
+    map.fitBounds(bounds);
 
     function makeMarkerIcon(markerColor) {
         var markerImage = new google.maps.MarkerImage(
@@ -380,7 +369,7 @@ function initMap() {
                         position: results[0].geometry.location,
                         title: self.nameFilter(),
                         animation: google.maps.Animation.DROP,
-                        // id: i,
+                        id: i,
                         icon: defaultIcon,
                         map: map
                     });
