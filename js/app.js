@@ -135,10 +135,10 @@ function ViewModel() {
     this.cityName = ko.observable("Zurich, Switzerland");
     this.listTitle = "Contents of Map :-";
     this.locationNames = ko.observableArray([]);
-    this.locationNames1 = ko.observableArray([]);
+    this.locationNamesOne = ko.observableArray([]);
     for (var i = 0; i < locations.length; i++) {
         self.locationNames.push(locations[i].title.toUpperCase());
-        self.locationNames1.push(locations[i].title.toUpperCase());
+        self.locationNamesOne.push(locations[i].title.toUpperCase());
     }
 
     this.defaultValue = ko.observable("");
@@ -196,12 +196,12 @@ function ViewModel() {
         if(typeof(self.filterValue()) == 'undefined')
         {
                     //window.alert('Please select value other than this');
-                    self.locationNames1.removeAll();
-                    // self.locationNames1 = (self.tempLocationNames());
+                    self.locationNamesOne.removeAll();
+                    // self.locationNamesOne = (self.tempLocationNames());
                     for(var k=0;k<markers.length;k++)
                     {
                         markers[k].setVisible(true);
-                        self.locationNames1.push(self.tempLocationNames()[k]);
+                        self.locationNamesOne.push(self.tempLocationNames()[k]);
                         infoWindow.close(map,markers[k]);
                     }
                     
@@ -223,8 +223,8 @@ function ViewModel() {
 		            	showWindow(markers[i],infoWindow);
 		            }
 		        }
-		        self.locationNames1.removeAll();
-		        self.locationNames1.push(placeHolder);
+		        self.locationNamesOne.removeAll();
+		        self.locationNamesOne.push(placeHolder);
         }
         
     };
