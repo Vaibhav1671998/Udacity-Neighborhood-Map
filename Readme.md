@@ -18,4 +18,4 @@ This app helps to go to any place in the world by just entering the name of the 
 # How to get Started with the app :-
 Get the full project and open the index.html file in a chrome or firefox to see app in action. 
 					OR
-Click on this [LINK](https://vaibhav1671998.github.io/Udacity-Neighborhood-Map/) to see the running version of this App.
+Click on this [LINK](https://born2bdev.github.io/Udacity-Neighborhood-Map/) to see the running version of this App.
